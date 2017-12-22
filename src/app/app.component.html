@@ -1,0 +1,52 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1>Amigo secreto da Kenoby!</h1>
+<div class="container">
+  <div class="row">
+    <table class="table table-hover">
+      <thead class="thead-primary">
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th id="th-acoes">Excluir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let amigo of amigos">
+          <td class="col-md-4">
+            <input [(ngModel)]="amigo.nome" (blur)="update(amigo)">
+          </td>
+          <td class="col-md-2">
+            <input [(ngModel)]="amigo.email" (blur)="update(amigo)">
+          </td>
+          <td class="td-acao">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" (click)="deletarAmigo(amigo)"></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="row div-botao-cadastro">
+    <button type="button" class="btn btn-primary btn-lg" (click)="toogleFormularioCadastro()">Cadastro de participante</button>
+    <button type="button" class="btn btn-primary btn-lg" (click)="sortear()" [disabled]="amigos.length < 3" >Sortear</button>
+  </div>
+
+  <div class="alert alert-success" role="alert" [hidden]="sorteioSucesso">
+    Amigos secretos sorteados com sucesso!
+  </div>
+
+</div>
+
+<form class="form-horizontal" [hidden]="isCadastroHidden" [formGroup]="cadastroForm" (ngSubmit)="cadastrarAmigo()">
+  <div class="form-group">
+    <label for="input-nome">Nome do participante</label>
+    <input type="text" class="form-control" id="input-nome" placeholder="Nome" formControlName="nome">
+  </div>
+  <div class="form-group">
+    <label for="input-email">Email do participante</label>
+    <input type="email" class="form-control" id="input-email" placeholder="Email" formControlName="email">
+  </div>
+  <div class="div-botao">
+    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!cadastroForm.valid">Cadastrar</button>
+  </div>
+</form>

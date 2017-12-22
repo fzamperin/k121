@@ -1,0 +1,45 @@
+@import '../styles.scss';
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+table {
+  thead {
+    tr {
+      #th-acoes {
+        text-align: center;
+      }
+    }
+  }
+  tbody {
+    tr {
+      .td-acao {
+        text-align: center;
+        span {
+          color: #eb4e2f;
+        }
+      }
+    }
+  }
+}
+
+.div-botao-cadastro {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.div-botao {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.alert {
+  margin-top: 30px;
+}
+
+form {
+  padding: 50px 0 0 50px;
+  margin-bottom: 50px;
+}
