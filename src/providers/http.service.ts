@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 
+/* Classe responsável por realizar as requisições HTTP para a api */
 @Injectable()
 export class HttpService {
 

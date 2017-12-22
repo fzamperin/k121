@@ -8,6 +8,7 @@ import { HttpService } from '../providers/http.service';
   styleUrls: ['./app.component.scss']
 })
 
+//APP component principal para a página de CRUD
 export class AppComponent {
 
   public cadastroForm: FormGroup;
@@ -19,6 +20,7 @@ export class AppComponent {
 
   constructor (private _formBuilder: FormBuilder, private _http: HttpService) {}
 
+  //Método init onde se busca os participantes e inicia o form de cadastro
   ngOnInit() {
     this.cadastroForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
