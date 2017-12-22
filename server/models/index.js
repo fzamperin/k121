@@ -12,6 +12,7 @@ mongoose.Promise = bluebird;
 //Cria conexão com o banco
 const connection = mongoose.createConnection(config.banco);
 
+//Mantém os models em somente um objeto para ser importado por outros .js
 let models = {
   amigo: connection.model('Amigo', amigoSchema)
 };

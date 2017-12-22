@@ -1,5 +1,8 @@
+/* Arquivo responsável por conter a função de enviar email */
+
 const nodemailer = require('nodemailer');
 
+//Cria transporter com o email base
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -8,6 +11,7 @@ const transporter = nodemailer.createTransport({
   }
 })
 
+//Envia e-mail pegando o texto e o destinatário
 async function enviarEmail(text, recipient) {
   try {
 

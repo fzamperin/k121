@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
+/* Rota responável pelo CRUD das pessoas que participarão do amigo oculto */
+
 router.get('/getall', async (req, res, next) => {
   try {
     const results = await db.amigo.find({});

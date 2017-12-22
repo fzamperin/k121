@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-let UsuarioSchema = new mongoose.Schema({
+//Schema Usuario que guardará as informações do sorteio
+let AmigoSchema = new mongoose.Schema({
   nome: {
     type: String,
     required: [true, 'Nome deve ser preenchido']
@@ -16,4 +17,4 @@ let UsuarioSchema = new mongoose.Schema({
     timestamps: true
   })
 
-module.exports = UsuarioSchema;
+module.exports = AmigoSchema;

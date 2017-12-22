@@ -7,7 +7,7 @@ const app = express();
 // Seta implementação global de promises bluebird
 global.Promise = require('bluebird');
 
-// API file for interacting with MongoDB
+// Arquivos da API que fazem a função do CRUD/Sortear
 const amigo = require('./routes/amigo');
 const sortear = require('./routes/sortear');
 
@@ -20,23 +20,23 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Parsers
+// Middlewares necessário (Parsers)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-// Angular DIST output folder
+// Pasta do angular onde conterá os arquivos estáticos resultantes do build
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 
-// API location
+// Middlewares de requisição da API
 app.use('/api/amigo/', amigo);
 app.use('/api/sortear/', sortear);
 
-// Send all other requests to the Angular app
+// Outras requisições que não forem de API irão renderizar o index.html (entry point da aplicação)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-//Set Port
+// Seta porta para o processo
 const port = process.env.PORT || '3000';
 app.set('port', port);
 

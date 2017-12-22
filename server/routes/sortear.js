@@ -5,6 +5,8 @@ const shuffle = require('shuffle-array');
 const mail = require('../helpers/mail');
 const db = require('../models');
 
+/* Rota responável por realizar o sorteio e enviar os email para os participantes */
+
 router.post('/', async (req, res, next) => {
   try {
     let amigos = await db.amigo.find({});
